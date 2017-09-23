@@ -1,0 +1,151 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #494A5F;
+	color: #D5D6E2;
+	font-weight: 500;
+	font-size: 1.05em;
+	font-family: "Microsoft YaHei", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+
+.summary {
+	margin-top: 200px;
+}
+
+.form-horizontal {
+	background: #fff;
+	padding-bottom: 10px;
+	border-radius: 15px;
+	text-align: center;
+}
+
+.summary .register_form{
+	display: none;
+}
+
+.form-horizontal .heading {
+	display: block; /*span是行内元素，使用block声明为块级元素，设置宽高*/
+	font-size: 35px;
+	font-weight: 700;
+	padding: 29px 0 33px;
+	border-bottom: 1px solid #f5f5f5;
+	margin-bottom: 30px;
+}
+
+.form-horizontal .form-group {
+	padding: 0 40px;
+	margin: 0 0 25px 0;
+	position: relative;
+}
+.form-horizontal .form-group button {
+	font-family: "Microsoft YaHei", "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 100%;
+	border: 0;
+	border-radius: 20px;
+	cursor: pointer;
+	padding: 10px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 2 ease;
+	transition: all 2 ease;
+}
+.form-horizontal .form-group button:hover, .form-horizontal .form-group button:active, .form-horizontal .form-group button:focus {
+	background: #43A047;
+}
+.form-horizontal .form-group .message {
+	margin-top: -10px;
+	color: #b3b3b3;
+	font-size: 12px;
+}
+
+.form-horizontal .form-group .message a {
+	color: #4CAF50;
+	text-decoration: none;
+}
+
+.form-horizontal .form-control {
+	background: #f0f0f0;
+	border: none;
+	border-radius: 20px;
+	box-shadow: none;
+	padding: 0 20px 0 45px;
+	height: 40px;
+	transition: all 0.3s ease 0s;
+}
+/*伪类,获得焦点*/
+.form-horizontal .form-control:focus {
+	background: #e0e0e0;
+	box-shadow: none;
+	outline: 0 none;
+}
+
+.form-horizontal .form-group i {
+	position: absolute;
+	top: 12px;
+	left: 40px;
+	font-size: 17px;
+	color: #c8c8c8;
+	transition: all 0.5s ease 0s;
+}
+
+.form-horizontal .form-control:focus+i{
+	color: #00b4ef;
+}
+
+.form-horizontal .fa-question-circle {
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	font-size: 20px;
+	color: #808080;
+	transition: all 0.5s ease 0s;
+	text-decoration: none;
+}
+
+.form-horizontal .fa-question-circle:hover {
+	color: #000;
+}
+
+/*动画效果 start*/
+.shake_effect{
+ 	-webkit-animation-name: shake;
+	animation-name: shake;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
+@-webkit-keyframes shake {
+	from, to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	10%, 30%, 50%, 70%, 90% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
+	}
+	20%, 40%, 60%, 80% {
+		-webkit-transform: translate3d(10px, 0, 0);
+		transform: translate3d(10px, 0, 0);
+	}
+}
+@keyframes shake {
+	from, to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	10%, 30%, 50%, 70%, 90% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+		transform: translate3d(-10px, 0, 0);
+	}
+	20%, 40%, 60%, 80% {
+		-webkit-transform: translate3d(10px, 0, 0);
+		transform: translate3d(10px, 0, 0);
+	}
+}
+/*动画效果  end*/

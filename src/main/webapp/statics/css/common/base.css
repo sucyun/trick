@@ -1,0 +1,193 @@
+@CHARSET "UTF-8";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.summary {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+}
+
+div.summary, div.main, div.left, div.center {
+	padding: 0;
+	margin: 0;
+	border-width: 0;
+}
+
+.summary .navbar {
+	border-width: 0;
+	margin: 0;
+}
+
+.summary .top {
+	width: 100%;
+	height: 50px;
+	background-color: #373d41;
+}
+
+.summary .main {
+	width: 100%;
+	height: 90%;
+	margin-top: 50px;
+	background-color: #eaedf1;
+}
+
+.summary .main .row, .row .left, .center, .right {
+	height: 100%;
+}
+
+.summary .main .left {
+	background-color: #42485b;
+	padding: 40px 0 0;
+}
+
+.summary .main .left .head {
+	width: 100%;
+	height: 40px;
+	background-color: #4A5064;
+	margin: -40px 0 0;
+	text-align: center;
+}
+
+.summary .main .left .head span {
+	font-size: 22px;
+	margin-top: 8px;
+	color: #7c95a9;
+}
+
+.summary .main .left .head span:hover {
+	/* 	transform: rotate(90deg); */
+	/* 	-ms-transform: rotate(90deg); Internet Explorer */
+	/* 	-moz-transform: rotate(90deg); Firefox */
+	/* 	-webkit-transform: rotate(90deg); Safari 和 Chrome */
+	/* 	-o-transform: rotate(90deg); */
+	color: white;
+}
+
+.summary .main .left .left-trees {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.summary .main .left .left-trees ul {
+	padding: 0;
+	margin-bottom: 0;
+	border-width: 0;
+}
+
+.summary .main .left .left-trees ul li {
+	padding-left: 10%;
+}
+
+.summary .main .left .left-trees .list-group-item {
+	border-radius: 0px;
+}
+
+.summary .main .center {
+	overflow: hidden;
+	/* 	overflow-y: auto; */
+	background-color: #ffffff;
+}
+
+.summary .main .center .tabs-container {
+	width: 100%;
+	height: 100%;
+/* 	margin: 0 8px 0; */
+	position: relative;
+/* 	background-color: #eaedf1; */
+}
+.summary .main .center .tabs-container .tabs-title{
+	background-color: rgba(123, 224, 239, 0.08);
+}
+.summary .main .center .tabs-container .tabs-title li {
+	width: 110px;
+	height: 42px;
+	position: relative;
+	text-align: center;
+	border: none;
+	border-left: 1px solid #ddd;
+	border-right: 2px solid #ddd;
+	border-top: 1px solid #ddd;
+	margin-left: 4px;
+	margin-top: 2px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.summary .main .center .tabs-container .tabs-title li.tab-home {
+	width: 90px;
+}
+
+.summary .main .center .tabs-container .tabs-title li.tab-home a {
+	padding-left: 15px;
+}
+
+.summary .main .center .tabs-container .tabs-title li.active a, a:hover {
+	background-color: #f9f9f9;
+}
+
+.summary .main .center .tabs-container .tabs-title li a:hover {
+	background-color: #f9f9f9;
+}
+
+.summary .main .center .tabs-container .tabs-title li a {
+	padding-bottom: 9px;
+	background-color: #ddd;
+	border: none;
+	margin: 0;
+	padding-left: 0px;
+}
+
+.summary .main .center .tabs-container .tabs-title li i {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	top: 10px;
+	right: 2px;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.summary .main .center .tabs-container .tabs-title li i:hover {
+	background-color: #ff2227;
+	border-radius: 50%;
+	color: white;
+	font-size: 12px;
+	font-weight: 100;
+}
+
+.summary .main .center .tabs-container .tabs-all {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+/* 		overflow-x: auto; */
+	overflow-y: auto;
+}
+
+.summary .main .center .tabs-container .core-home {
+	padding-top: 100px;
+	text-align: center;
+	font-size: 65px;
+	font-family: serif;
+}
+
+.summary .main .right {
+	background-color: #f9fafc;
+}
+
+.summary .bottom {
+	z-index: 999;
+	height: 50px;
+	background-color: #f5f5f6;
+	height: 50px;
+}

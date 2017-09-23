@@ -1,0 +1,174 @@
+@CHARSET "UTF-8";
+
+div.core {
+	width: 97%;
+	padding: 0;
+	margin: 20px 10px 5px 15px;
+	/* 	border: 1px solid #dddddd; */
+	border-radius: 4px;
+	/* 	background-color: #fff; */
+}
+
+/* .summary .main .center .tabs-container .tabs-all .core-admin { */
+div.core-admin {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.t-head {
+	
+}
+
+.t-center {
+	
+}
+
+.core-admin .t-form {
+/* 	width: 100%; */
+	height: 100%;
+	margin-top: 30px;
+}
+.core-admin .search-group{
+	height: 34px;
+	padding-left: 10px;
+}
+.core-admin .search-group .search-input{
+	width:200px;
+	height: 34px;
+	padding:2px 15px;
+	border: 1px solid #ddd;
+	float: left;
+	border-right: 0;
+	border-radius: 4px 0 0 4px;
+}
+.core-admin .search-group .search-button{
+	width:60px;
+	height: 34px;
+	margin: 0px;
+	padding: 0px;
+	color: #fff;
+	background-color: #5bc0de;
+	border:0;
+	font-size: 16px;
+    font-weight: 400;
+    float: left;
+    border-radius: 0 4px 4px 0;
+}
+
+.core-admin .t-condition {
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.core-admin .t-condition .t-condition-line {
+	/* 	width:100%; */
+	height: 34px;
+	margin-top: 9px;
+}
+
+.core-admin .t-condition .t-condition-line .line-input, .line-select, .line-date, .line-radio, .line-checkbox {
+	width: 240px;
+	float: left;
+}
+
+.core-admin .t-condition .t-condition-line .line-input {
+	
+}
+
+.core-admin .t-condition .t-condition-line .line-select {
+	
+}
+
+.core-admin .t-condition .t-condition-line .line-select {
+	
+}
+
+.core-admin .t-condition .t-condition-line .line-date {
+	
+}
+
+.core-admin .t-condition .t-condition-line .line-date input {
+	width: 195px;
+	border-radius: 0px;
+	/* 	background-color: #fff; */
+	border-right: none;
+}
+
+.core-admin .t-condition .t-condition-line .line-date span.input-group-addon {
+	padding: 6px 10px;
+}
+
+.core-admin .t-condition .t-condition-line .line-radio {
+	
+}
+
+.core-admin .t-condition .t-condition-line .line-checkbox {
+	
+}
+
+.core-admin .t-grid {
+	width: 99%;
+	color: #656565;
+}
+
+.core-admin .t-condition .t-condition-line .line-input, .line-select, .line-date, .line-radio, .line-checkbox,
+	.core-admin .t-grid {
+	margin-left: 10px;
+}
+
+.core-admin .t-grid .t-grid-table {
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+.core-admin .t-grid .t-grid-table thead th{
+	background-color: rgba(221, 221, 221, 0.13);
+}
+
+.core-admin .t-grid .t-grid-table th, td {
+	padding-left: 10px;
+}
+
+.core-admin .t-grid .t-grid-pages {
+	height: 55px;
+	margin: 0px;
+	padding: 9px 0px; border : 1px solid #ddd;
+	border-top: none;
+	border: 1px solid #ddd;
+}
+
+.core-admin .t-grid .t-grid-pages .t-grid-pages-left {
+	margin-top: 0;
+	line-height: 36px;
+}
+.core-admin .t-grid .t-grid-pages .t-grid-pages-left input{
+	width: 37px;
+	height: 27px;
+	border: 1px solid #ddd;
+	padding: 3px;
+	
+}
+
+.core-admin .t-grid .t-grid-pages .t-grid-pages-right ul {
+	float: right;
+	margin: 0px;
+}
+.core-admin .t-grid .t-grid-pages .t-grid-pages-right i.omit {
+	font-size: 12px;
+}
+
+.core-admin .t-grid .t-grid-pages .pagination>li>a, .core-admin .t-grid .t-grid-pages .pagination>li>span {
+	color: #656565;
+}
+
+/* .summary .main .center .tabs-container .tabs-all .core-admin { */
+/* } */
+/* .summary .main .center .tabs-container .tabs-all .core-admin .t-head{ */
+/* } */
+/* .summary .main .center .tabs-container .tabs-all .core-admin .t-center{ */
+/* } */
+/* .summary .main .center .tabs-container .tabs-all .core-admin .t-form{ */
+/* } */
+/* .summary .main .center .tabs-container .tabs-all .core-admin .t-grid-table{ */
+/* } */
