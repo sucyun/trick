@@ -15,31 +15,31 @@ import org.mybatis.generator.api.dom.java.TopLevelClass;
 import org.springframework.stereotype.Service;
 
 public class MybatisServicePlugin extends BizExtendPlugin {
-	
+
 	/**
 	 * Describe: 添加引用
 	 * Administrator 2017年6月24日
 	 */
 	@Override
 	public void commonImportGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-		
+
 	}
-	
+
 	/**
 	 * Describe: 名字转换
 	 * MrShuai 2017年6月24日
 	 */
 	@Override
 	public void commonNameFormatGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-		
+
 	}
-	
+
 	/**
 	 * Describe: 创建Java文件 - 业务接口
 	 * MrShuai 2017年6月24日
 	 */
 	public void createInterfaceGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-		
+
 	}
 
 	/**
@@ -60,14 +60,14 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		topLevelClass.addSuperInterface(new FullyQualifiedJavaType(tableNameService+"Service"));
 		//添加方法
 		Field field = new Field();
-        field.setName("userTDao"); // 设置变量名
-        topLevelClass.addImportedType("org.springframework.stereotype.userTService");
-        field.setType(new FullyQualifiedJavaType(introspectedTable.getMyBatis3JavaMapperType())); // 类型
-        field.setVisibility(JavaVisibility.PRIVATE);
-        if (enableAnnotation) {
-            field.addAnnotation("@Resource");
-        }
-        topLevelClass.addField(field);
+		field.setName("userTDao"); // 设置变量名
+		topLevelClass.addImportedType("org.springframework.stereotype.userTService");
+		field.setType(new FullyQualifiedJavaType(introspectedTable.getMyBatis3JavaMapperType())); // 类型
+		field.setVisibility(JavaVisibility.PRIVATE);
+		if (enableAnnotation) {
+			field.addAnnotation("@Resource");
+		}
+		topLevelClass.addField(field);
 		topLevelClass.addMethod(saveModel(introspectedTable, tableName));
 		topLevelClass.addMethod(removeModel(introspectedTable, tableName));
 		topLevelClass.addMethod(updateMode(introspectedTable, tableName));
@@ -77,9 +77,9 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		topLevelClass.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RequestMapping"));
 		topLevelClass.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.RequestMethod"));
 		topLevelClass.addImportedType(new FullyQualifiedJavaType("org.springframework.web.bind.annotation.ResponseBody"));
-		
-		GeneratedJavaFile file = new GeneratedJavaFile(topLevelClass, "F://workspace//trick//src//main/java",new DefaultJavaFormatter());
-        files.add(file);
+
+		GeneratedJavaFile file = new GeneratedJavaFile(topLevelClass, workurl+"/src/main/java",new DefaultJavaFormatter());
+		files.add(file);
 	}
 
 	/**
@@ -88,16 +88,16 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 	 */
 	@Override
 	public void createFieldGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable, String tableName) {
-		
+
 	}
-	
+
 	/**
 	 * Describe: 创建方法
 	 * MrShuai 2017年6月24日
 	 */
 	@Override
 	public void createMethodGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable, String tableName) {
-		
+
 	}
 
 	/**
@@ -106,16 +106,16 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 	 */
 	@Override
 	public void commentjavaFileGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable, String tableName) {
-		
+
 	}
-	
+
 	/**
 	 * Describe: 添加方法注释
 	 * MrShuai 2017年6月24日
 	 */
 	@Override
 	public void commentMethodGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
-		
+
 	}
 
 	/**
@@ -135,7 +135,7 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		method.addBodyLine(sb.toString());
 		return method;
 	}
-	
+
 	/**
 	 * Describe: 删除对象方法
 	 * MrShuai 2017年8月11日
@@ -153,7 +153,7 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		method.addBodyLine(sb.toString());
 		return method;
 	}
-	
+
 	/**
 	 * Describe: 更新修改对象方法
 	 * MrShuai 2017年8月11日
@@ -162,7 +162,7 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		Method method = new Method();
 		method.addJavaDocLine("/**\n\t* Describe: 修改方法\n\t* "+userName+" "+new SimpleDateFormat("yyyy年MM月dd日").format(new Date())+"\n\t*/");
 		method.setName("update"+tableName);
-		
+
 		method.setVisibility(JavaVisibility.PUBLIC);
 		// 添加返回值
 		method.setReturnType(new FullyQualifiedJavaType("String"));
@@ -171,7 +171,7 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		method.addBodyLine(sb.toString());
 		return method;
 	}
-	
+
 	/**
 	 * Describe: 对象列表跳转
 	 * MrShuai 2017年8月11日
@@ -189,7 +189,7 @@ public class MybatisServicePlugin extends BizExtendPlugin {
 		method.addBodyLine(sb.toString());
 		return method;
 	}
-	
+
 	/**
 	 * Describe: 根据条件查询对象列表方法
 	 * MrShuai 2017年8月11日
