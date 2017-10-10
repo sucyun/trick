@@ -9,6 +9,8 @@ import com.trick.web.common.utils.LoggerUtils;
 import com.trick.web.common.utils.SpringContextUtil;
 import com.trick.web.core.statics.Constant;
 
+import freemarker.template.Configuration;
+import freemarker.template.DefaultObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -52,7 +54,7 @@ public class APITemplateModel extends WYFTemplateModel {
 			Object result = tag.result(params);
 			
 			//输出
-			paramWrap.put(Constant.OUT_TAG_NAME, DEFAULT_WRAPPER.wrap(result));
+			paramWrap.put(Constant.OUT_TAG_NAME, new DefaultObjectWrapper(Configuration.VERSION_2_3_23).wrap(result));
 		}else{
 			LoggerUtils.error(getClass(), "Cannot be null, must include a 'name' attribute!");
 		}

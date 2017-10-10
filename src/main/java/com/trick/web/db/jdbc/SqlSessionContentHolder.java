@@ -1,6 +1,5 @@
 package com.trick.web.db.jdbc;
 
-@Deprecated
 public class SqlSessionContentHolder {
 
 	private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();

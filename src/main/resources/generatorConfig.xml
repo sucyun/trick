@@ -12,17 +12,17 @@
 		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
 		<!-- 自动生成equals方法和hashcode方法 -->
 		<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
-		<plugin type="com.trick.web.core.generator.plugins.MybatisGeneratorPlugin">
+		<!--<plugin type="com.trick.web.core.generator.plugins.MybatisGeneratorPlugin">-->
 			<!-- controller与service页面的位置 -->
 			<!-- controller 包路径 -->
-			<property name="controllerPackage" value="com.trick.biz.mvc.t.controller" />
+			<!--<property name="controllerPackage" value="" />-->
 			<!-- service 包路径 -->
-			<property name="servicePackage" value="com.trick.biz.mvc.t.service" />
+			<!--<property name="servicePackage" value="" />-->
 			<!-- jsp 页面路径 -->
-			<property name="viewPath" value="" />
+			<!--<property name="viewPath" value="" />-->
 			<!-- 项目路径 -->
 <!-- 			<property name="targetProject" value="F:/workspace/trick/src/main/java" /> -->
-		</plugin>
+		<!--</plugin>-->
 		<!-- 自定义方法 -->
 		<!-- 插件 plugins end -->
 		<commentGenerator>
@@ -32,29 +32,29 @@
 			<!-- 是否阻止生成注释时间戳 -->
 			<property name="suppressDate" value="true" />
 		</commentGenerator>
+
 		<!--数据库链接URL，用户名、密码 -->
 <!-- 		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/trick?serverTimezone=GMT&amp;nullNamePatternMatchesAll=true" userId="root" password="root"></jdbcConnection> -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/trick" userId="root" password="Abcd1234@"></jdbcConnection>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/trick" userId="root" password="Abcd1234@"/>
 		<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@172.21.0.69:1526:bnms" userId="search15" password="search15"></jdbcConnection> -->
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="com.trick.biz.mvc.t1.model" targetProject="src/main/java">
+		<javaModelGenerator targetPackage="" targetProject="">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 <!-- 			<property name="rootClass" value="com.dfz.base.BaseModel" /> -->
 		</javaModelGenerator>
 		<!-- 生成映射文件的包名和位置 -->
-		<sqlMapGenerator targetPackage="com.trick.biz.mvc.t1.dao.mapping" targetProject="src/main/java">
+		<sqlMapGenerator targetPackage="" targetProject="">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
-		<javaClientGenerator type="xmlmapper" targetPackage="com.trick.biz.mvc.t1.dao" targetProject="src/main/java">
+		<javaClientGenerator type="xmlmapper" targetPackage="" targetProject="">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名 -->
-		<table tableName="user_t" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-		</table>
+		<table catalog="" tableName=""  domainObjectName="" selectByExampleQueryId="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableCountByExample="false"/>
 	</context>
 </generatorConfiguration>

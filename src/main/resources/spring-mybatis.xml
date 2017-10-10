@@ -17,10 +17,10 @@
 		<property name="logSlowSql" value="true" />
 	</bean>
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
-		<property name="driverClassName" value="${local_driver}" />
-		<property name="url" value="${local_url}" />
-		<property name="username" value="${local_username}" />
-		<property name="password" value="${local_password}" />
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
 		<!-- 初始化连接大小 -->
 		<property name="initialSize" value="${initialSize}"/>
 		<!-- 连接池最大数量 -->
@@ -42,7 +42,7 @@
 	</bean>
 
 
-	<bean id="dataSourceSpringboot" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+	<!--<bean id="dataSourceSpringboot" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
 		<property name="driverClassName" value="${route_driver}" />
 		<property name="url" value="${route_url}" />
 		<property name="username" value="${route_username}" />
@@ -53,9 +53,9 @@
 		<property name="maxWait" value="${maxWait}"/>
 		<property name="filters" value="stat" />
 		<property name="connectionProperties" value="druid.stat.slowSqlMillis=5000" />
-	</bean>
+	</bean>-->
 
-	<bean id="dataSourceSpringboot_local" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+	<!--<bean id="dataSourceSpringboot_local" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
 		<property name="driverClassName" value="${local_springboot_driver}" />
 		<property name="url" value="${local_springboot_url}" />
 		<property name="username" value="${local_springboot_username}" />
@@ -66,11 +66,11 @@
 		<property name="maxWait" value="${maxWait}"/>
 		<property name="filters" value="stat" />
 		<property name="connectionProperties" value="druid.stat.slowSqlMillis=5000" />
-	</bean>
+	</bean>-->
 
 	<!-- Spring 整合 MyBatis,不需要Mybatis配置映射文件,由Mybatis提供支持 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSourceSpringboot_local" />
+		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mapping.xml文件 -->
 		<property name="mapperLocations" value="classpath*:com/trick/biz/mvc/*/dao/mapping/*.xml"/>
 		<property name="typeAliasesPackage" value="com.trick.biz.mvc.*.model" />
@@ -134,12 +134,12 @@
 		<!-- 			</props> -->
 		<!-- 		</property> -->
 	</bean>
-	<bean id="sqlSessionFactorySpringboot" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!--<bean id="sqlSessionFactorySpringboot" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSourceSpringboot" />
-		<!-- 自动扫描mapping.xml文件 -->
+		&lt;!&ndash; 自动扫描mapping.xml文件 &ndash;&gt;
 		<property name="mapperLocations" value="classpath*:com/trick/biz/mvc/test/dao/mapping/*.xml"/>
 		<property name="typeAliasesPackage" value="com.trick.biz.mvc.test.model" />
-		<!-- mybatis 分页插件 -->
+		&lt;!&ndash; mybatis 分页插件 &ndash;&gt;
 		<property name="plugins">
 			<array>
 				<bean class="com.github.pagehelper.PageHelper">
@@ -151,13 +151,13 @@
 				</bean>
 			</array>
 		</property>
-	</bean>
-	<bean id="sqlSessionFactorySpringboot_local" class="org.mybatis.spring.SqlSessionFactoryBean">
+	</bean>-->
+	<!--<bean id="sqlSessionFactorySpringboot_local" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSourceSpringboot_local" />
-		<!-- 自动扫描mapping.xml文件 -->
+		&lt;!&ndash; 自动扫描mapping.xml文件 &ndash;&gt;
 		<property name="mapperLocations" value="classpath*:com/trick/biz/mvc/test/dao/mapping/*.xml"/>
 		<property name="typeAliasesPackage" value="com.trick.biz.mvc.test.model" />
-		<!-- mybatis 分页插件 -->
+		&lt;!&ndash; mybatis 分页插件 &ndash;&gt;
 		<property name="plugins">
 			<array>
 				<bean class="com.github.pagehelper.PageHelper">
@@ -169,9 +169,10 @@
 				</bean>
 			</array>
 		</property>
-	</bean>
+	</bean>-->
 
-	<bean id="masterAndSlaveSqlSessionTemplate" class="com.trick.web.db.jdbc.DynamicSqlSessionTemplate">
+	<!-- 配置多数据元时，注入数据库连接信息，在dao层中通过注解选择当前dao所使用的数据源 -->
+	<!--<bean id="masterAndSlaveSqlSessionTemplate" class="com.trick.web.db.jdbc.DynamicSqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactorySpringboot_local" />
 		<property name="targetSqlSessionFactorys">
 			<map>
@@ -179,15 +180,19 @@
 				<entry value-ref="sqlSessionFactorySpringboot_local" key="dataSource_local" />
 			</map>
 		</property>
-	</bean>
+	</bean>-->
 
 	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.trick.biz.mvc.*.dao" />
-		<!-- 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactorySpringboot"></property> -->
-		<property name="sqlSessionTemplateBeanName" value="masterAndSlaveSqlSessionTemplate"/>
+		<!-- 配置单数据源时可以使用 sqlSessionFactoryBeanName 属性，对应value 为但数据源连接-->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<!-- 配置多数据源时可以使用 sqlSessionTemplateBeanName 属性，对应value 为多数据源管理bean -->
+		<!--<property name="sqlSessionTemplateBeanName" value="masterAndSlaveSqlSessionTemplate"/>-->
 	</bean>
+	<!-- aop代理层，配置多数据源时，通过配置dao层切点，将解析dao层所使用的连接信息，最后选择相应数源 -->
 	<bean id="dataSourceAspect" class="com.trick.web.db.jdbc.DataSourceAspect"/>
+	<!-- 多数据源切入点aop切入点配置 -->
 	<aop:config>
 		<aop:aspect ref="dataSourceAspect">
 			<!-- 拦截所有service方法 -->

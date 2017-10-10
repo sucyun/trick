@@ -78,7 +78,7 @@ public class Ferrmarker {
 //		initMap.put("path", path);
 		/**Freemarker Config*/
 		//1、创建Cfg
-		cfg = new Configuration();
+		cfg = new Configuration(Configuration.VERSION_2_3_23);
 		//2、设置编码
 		cfg.setLocale(Locale.getDefault()) ;
 		cfg.setEncoding(Locale.getDefault(),"UTF-8") ;
@@ -120,8 +120,7 @@ public class Ferrmarker {
 	 * @param inFile 模版文件
 	 * @param outPath 输出html路径
 	 * @param outFile 输出html NAME+后缀
-	 * @param map 只是一个传值的对象，可以为空
-	 * @throws IOException 
+	 * @throws IOException
 	 * @throws TemplateException 
 	 * @throws Exception
 	 */
@@ -136,9 +135,7 @@ public class Ferrmarker {
 			cfg.setDirectoryForTemplateLoading(filex) ;
 			//4、加载模板文件
 			Template temp = cfg.getTemplate(inFile) ;
-			//设置编码
-			temp.setEncoding("UTF-8") ;
-			//5、构建一个File对象输出 
+			//5、构建一个File对象输出
 			File file = new File(outPath + outFile) ;
 			fos = new FileOutputStream(file) ;
 			osw = new OutputStreamWriter(fos,"UTF-8") ;

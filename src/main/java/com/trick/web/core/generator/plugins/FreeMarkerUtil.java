@@ -27,7 +27,7 @@ public class FreeMarkerUtil {
 
 			Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
 			cfg.setDefaultEncoding("UTF-8");
-			cfg.setDirectoryForTemplateLoading(new File("F:/workspace/trick/src/main/resources/template/"));
+			cfg.setDirectoryForTemplateLoading(new File("/run/idea_space/trick/src/main/resources/template/"));
 			return cfg.getTemplate(name);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -55,7 +55,7 @@ public class FreeMarkerUtil {
 	public void fPrint(String name, String viewpath, Map<String, Object> root, String outFile) {
 		Writer writer = null;
 		// String view = PATH.split(PROJECT_PATH)[0]+"views/";
-		String view = "F:/workspace/trick/src/main/webapp/WEB-INF/views/";
+		String view = "/run/idea_space/trick/src/main/webapp/WEB-INF/views/";
 		// String view = PROJECT_PATH+"/WebContent/WEB-INF/views/";
 		try {
 			File file = new File(view + viewpath);

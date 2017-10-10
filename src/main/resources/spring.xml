@@ -14,27 +14,39 @@
 <!-- 	<import resource="spring-timer.xml"/> -->
 	<!-- 引入属性文件 -->
 	<beans profile="dev">
-		<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<bean id="propertyConfigurer_dev" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 			<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
 			<property name="ignoreResourceNotFound" value="true" />
 			<property name="locations">
 				<list>
-					<value>classpath:config/jdbc_local.properties</value>
+					<value>classpath:config/jdbc_dev.properties</value>
 					<!-- <value>classpath:config/shiro-config.properties</value> -->
 				</list>
 			</property>
 		</bean>
 	</beans>
-	<beans profile="prod">
-		<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-			<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-			<property name="ignoreResourceNotFound" value="true" />
-			<property name="locations">
-				<list>
-					<value>classpath:config/jdbc_prod.properties</value>
-					<!-- <value>classpath:config/shiro-config.properties</value> -->
-				</list>
-			</property>
-		</bean>
-	</beans>
+	<!--<beans profile="local">-->
+		<!--<bean id="propertyConfigurer_local" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+			<!--<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />-->
+			<!--<property name="ignoreResourceNotFound" value="true" />-->
+			<!--<property name="locations">-->
+				<!--<list>-->
+					<!--<value>classpath:config/jdbc_local.properties</value>-->
+					<!--&lt;!&ndash; <value>classpath:config/shiro-config.properties</value> &ndash;&gt;-->
+				<!--</list>-->
+			<!--</property>-->
+		<!--</bean>-->
+	<!--</beans>-->
+	<!--<beans profile="prod">-->
+		<!--<bean id="propertyConfigurer_prod" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+			<!--<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />-->
+			<!--<property name="ignoreResourceNotFound" value="true" />-->
+			<!--<property name="locations">-->
+				<!--<list>-->
+					<!--<value>classpath:config/jdbc_prod.properties</value>-->
+					<!--&lt;!&ndash; <value>classpath:config/shiro-config.properties</value> &ndash;&gt;-->
+				<!--</list>-->
+			<!--</property>-->
+		<!--</bean>-->
+	<!--</beans>-->
 </beans>
