@@ -19,6 +19,8 @@ package com.trick.web.common.utils;
  * @version 1.0,2016年6月2日 <br/>
  * 
  */
+import com.trick.web.common.utils.Log.LoggerUtils;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

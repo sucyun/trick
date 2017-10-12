@@ -1,5 +1,7 @@
 package com.trick.web.common.utils;
 
+import com.trick.web.common.utils.Log.LoggerUtils;
+
 import java.security.MessageDigest;
 import java.util.Random;
 

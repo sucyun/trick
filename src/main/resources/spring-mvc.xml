@@ -35,13 +35,18 @@
 	<mvc:resources mapping="/statics/css/**" location="/statics/css/" />
 	<mvc:resources mapping="/statics/js/**" location="/statics/js/" />
 
+	<!--<mvc:interceptors>-->
+		<!--<bean class="com.web.common.interceptor.EventInterceptor" />-->
+	<!--</mvc:interceptors>-->
+
 	<!-- all bean ############################################################################################ -->
 	<!-- 视图解析器 begin ####################################################################################### -->
 
 	<!-- 配置SpringMVC的视图解析器,其viewClass属性的默认值就是org.springframework.web.servlet.view.JstlView -->
 	<bean id="viewResolverCommon" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
-		<property name="prefix" value="/WEB-INF/views/" />
+		<!--<property name="prefix" value="/WEB-INF/views/" />-->
+		<property name="prefix" value="/easyui/"/>
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>

@@ -3,8 +3,9 @@ package com.trick.web.core.freemarker.extend;
 import java.util.Date;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+
+import com.trick.web.common.utils.Log.LoggerUtils;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
-import com.trick.web.common.utils.LoggerUtils;
 import com.trick.web.core.statics.Constant;
 
 public class FreeMarkerViewExtend extends FreeMarkerView {

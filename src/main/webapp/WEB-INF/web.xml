@@ -9,7 +9,7 @@
 	<!-- 加载配置文件 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring.xml</param-value>
+		<param-value>classpath*:spring.xml,spring-shiro.xml</param-value>
 	</context-param>
 	<!-- 解决 javax.naming.NameNotFoundException: -->
 	<!-- Name [spring.profiles.active] is not bound in this Context. Unable to find [spring.profiles.active] -->

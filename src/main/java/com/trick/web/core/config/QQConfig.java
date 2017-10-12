@@ -1,9 +1,10 @@
 package com.trick.web.core.config;
 
+import com.trick.web.common.utils.Log.LoggerUtils;
+
 import java.io.IOException;
 import java.util.Properties;
 
-import com.trick.web.common.utils.LoggerUtils;
 
 
 public class QQConfig {

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.name.mvc.admin.dao.PrivilegeMapper" >
+  <resultMap id="BaseResultMap" type="com.name.mvc.admin.model.Privilege" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="parentid" property="parentId" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="explan" property="explan" jdbcType="VARCHAR" />
+    <result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="createby" property="createBy" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parentid, code, name, url, explan, createtime, createby, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_privilege
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_privilege
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.name.mvc.admin.model.Privilege" >
+    insert into sys_privilege (id, parentid, code, 
+      name, url, explan, 
+      createtime, createby, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{explan,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.name.mvc.admin.model.Privilege" >
+    insert into sys_privilege
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentId != null" >
+        parentid,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="explan != null" >
+        explan,
+      </if>
+      <if test="createTime != null" >
+        createtime,
+      </if>
+      <if test="createBy != null" >
+        createby,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="explan != null" >
+        #{explan,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.name.mvc.admin.model.Privilege" >
+    update sys_privilege
+    <set >
+      <if test="parentId != null" >
+        parentid = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="explan != null" >
+        explan = #{explan,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        createtime = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createBy != null" >
+        createby = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.name.mvc.admin.model.Privilege" >
+    update sys_privilege
+    set parentid = #{parentId,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      explan = #{explan,jdbcType=VARCHAR},
+      createtime = #{createTime,jdbcType=TIMESTAMP},
+      createby = #{createBy,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 自关联查询 -->
+  <resultMap id="ModelResultMap" type="com.name.mvc.admin.model.Privilege" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="explan" property="explan" jdbcType="VARCHAR" />
+    <result column="createtime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="createby" property="createBy" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    
+    <association property="parentModule" column="parentid" select="getModulesById" />
+  </resultMap>
+  
+  <select id="findAll" resultType="java.util.Map" parameterType="java.util.Map" >
+    select 
+    sp.id, par_sp.id as _parentId, par_sp.name as pname, sp.code, sp.name, sp.url, sp.explan, sp.createtime, sp.createby, sp.status
+    from sys_privilege sp 
+    left join sys_privilege par_sp on par_sp.id=sp.parentid
+	<if test="roleid!=null and roleid!='' and position!='out'">
+		LEFT JOIN sys_role_to_privilege srtp ON srtp.privilegeid = sp.id
+		where srtp.roleid = #{roleid,jdbcType=INTEGER}
+	</if>
+	<if test="roleid!=null and roleid!='' and position=='out'">
+		WHERE sp.id NOT in(SELECT srtp.privilegeid from sys_role_to_privilege srtp WHERE srtp.roleid = #{roleid,jdbcType=INTEGER})
+	</if>
+	order by id asc
+	<if test="(position==null or position=='') and (roleid==null or roleid=='')">
+		limit #{begin,jdbcType=INTEGER}, #{pagesize,jdbcType=INTEGER}
+	</if>
+  </select>
+  
+  <select id="countByParam" resultType="java.lang.Integer" parameterType="java.util.Map">
+	select count(*)
+	from sys_privilege sp
+	<if test="roleid!=null and roleid!=''">
+		LEFT JOIN sys_role_to_privilege srtp ON srtp.privilegeid = sp.id
+		where srtp.roleid = #{roleid,jdbcType=INTEGER}
+	</if>
+  </select>
+  
+</mapper>

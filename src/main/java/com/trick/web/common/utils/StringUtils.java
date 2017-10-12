@@ -1,5 +1,6 @@
 package com.trick.web.common.utils;
 
+import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,35 +14,35 @@ import java.util.regex.Pattern;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-
+import com.trick.web.common.utils.Log.LoggerUtils;
 import sun.misc.BASE64Decoder;
 
-
 /**
- * String工具
- * 主要对 StringUtils 的一些方法进行重写,达到更方便的使用
- * @author zhou-baicheng
+ * Describe:String工具:主要对 StringUtils 的一些方法进行重写,达到更方便的使用
+ * @author MrShuai 2016年12月25日
  */
-@SuppressWarnings("restriction")
-public class StringUtils extends org.apache.commons.lang.StringUtils{
-	
+public class StringUtils extends org.apache.commons.lang.StringUtils {
+
 	/**
 	 * 一次性判断多个或单个对象为空。
 	 * @param objects
-	 * @author zhou-baicheng
+	 * @author MrShuai 2016年12月25日
 	 * @return 只要有一个元素为Blank，则返回true
 	 */
-	public static boolean isBlank(Object...objects){
-		Boolean result = false ;
+	public static boolean isBlank(Object... objects) {
+		Boolean result = false;
 		for (Object object : objects) {
-			if(null == object || "".equals(object.toString().trim()) 
-					|| "null".equals(object.toString().trim())){
-				result = true ; 
-				break ; 
+			if (null == object || "".equals(object.toString().trim()) || "null".equals(object.toString().trim())) {
+				result = true;
+				break;
 			}
 		}
-		return result ; 
+		return result;
 	}
+	/**
+	 * Describe: 获取随机数
+	 * MrShuai 2016年12月25日
+	 */
 	public static String getRandom(int length) {
 		String val = "";
 		Random random = new Random();
@@ -59,36 +60,42 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return val.toLowerCase();
 	}
+
 	/**
-	 * 一次性判断多个或单个对象不为空。
+	 * Describe: 一次性判断多个或单个对象不为空。
 	 * @param objects
-     * @author zhou-baicheng
+	 * @author MrShuai 2016年12月25日
 	 * @return 只要有一个元素不为Blank，则返回true
 	 */
 	public static boolean isNotBlank(Object... objects) {
 		return !isBlank(objects);
 	}
+
 	public static boolean isBlank(String... objects) {
 		Object[] object = objects;
 		return isBlank(object);
 	}
+
 	public static boolean isNotBlank(String... objects) {
 		Object[] object = objects;
 		return !isBlank(object);
 	}
+
 	public static boolean isBlank(String str) {
 		Object object = str;
 		return isBlank(object);
 	}
+
 	public static boolean isNotBlank(String str) {
 		Object object = str;
 		return !isBlank(object);
 	}
+
 	/**
-	 * 判断一个字符串在数组中存在几个
+	 * Describe: 判断一个字符串在数组中存在几个
 	 * @param baseStr
 	 * @param strings
-	 * @return
+	 * MrShuai 2016年12月25日
 	 */
 	public static int indexOf(String baseStr, String[] strings) {
 
@@ -102,8 +109,9 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return i;
 	}
+
 	/**
-	 * 判断一个字符串是否为JSONObject,是返回JSONObject,不是返回null
+	 * Describe: 判断一个字符串是否为JSONObject,是返回JSONObject,不是返回null
 	 * @param args
 	 * @return
 	 */
@@ -113,13 +121,14 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return result;
 		}
 		try {
-			return JSONObject.parseObject(args.trim());
+			return JSONObject.parseObject(args);
 		} catch (Exception e) {
 			return result;
 		}
 	}
+
 	/**
-	 * 判断一个字符串是否为JSONArray,是返回JSONArray,不是返回null
+	 * Describe: 判断一个字符串是否为JSONArray,是返回JSONArray,不是返回null
 	 * @param args
 	 * @return
 	 */
@@ -143,12 +152,14 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		} else {
 			return null;
 		}
+
 	}
 	public static String trimToEmpty(Object str) {
 		return (isBlank(str) ? "" : str.toString().trim());
 	}
+
 	/**
-	 * 将 Strig 进行 BASE64 编码
+	 * Describe: 将 Strig 进行 BASE64 编码
 	 * @param str [要编码的字符串]
 	 * @param bf [true|false,true:去掉结尾补充的'=',false:不做处理]
 	 * @return
@@ -164,7 +175,10 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		return base64;
 	}
 
-	/** 将 BASE64 编码的字符串 s 进行解码 **/
+	/**
+	 * Describe: 将 BASE64 编码的字符串 s进行解码
+	 * MrShuai 2016年12月25日
+	 */
 	public static String getStrByBASE64(String s) {
 		if (isBlank(s))
 			return "";
@@ -176,8 +190,9 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return "";
 		}
 	}
+
 	/**
-	 * 把Map转换成get请求参数类型,如 {"name"=20,"age"=30} 转换后变成 name=20&age=30
+	 * Describe: 把Map转换成get请求参数类型,如 {"name"=20,"age"=30} 转换后变成 name=20&age=30
 	 * @param map
 	 * @return
 	 */
@@ -193,8 +208,9 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 
 		return isBlank(result) ? result : result.substring(0, result.length() - 1);
 	}
+
 	/**
-	 * 把一串参数字符串,转换成Map 如"?a=3&b=4" 转换为Map{a=3,b=4}
+	 * Describe: 把一串参数字符串,转换成Map 如"?a=3&b=4" 转换为Map{a=3,b=4}
 	 * @param args
 	 * @return
 	 */
@@ -208,7 +224,6 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			args = args.substring(1, args.length());
 		}
 		String[] argsArray = args.split("&");
-
 		Map<String, Object> result = new HashMap<String, Object>();
 		for (String ag : argsArray) {
 			if (!isBlank(ag) && ag.indexOf("=") > 0) {
@@ -224,14 +239,12 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 				}
 				value = value.length() > 0 ? value.substring(0, value.length() - 1) : value;
 				result.put(key, value);
-
 			}
 		}
-
 		return result;
 	}
 	/**
-	 * 转换成Unicode
+	 * Describe: 转换成Unicode
 	 * @param str
 	 * @return
 	 */
@@ -250,7 +263,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		return s1;
 	}
 	/**
-	 * 合并数据
+	 * Describe: 合并数据
 	 * @param v
 	 * @return
 	 */
@@ -262,8 +275,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		return sb.toString();
 	}
 	/**
-	 * 字符串转urlcode
-	 * 
+	 * Describe: 字符串转urlcode
 	 * @param value
 	 * @return
 	 */
@@ -277,8 +289,9 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			return null;
 		}
 	}
+
 	/**
-	 * urlcode转字符串
+	 * Describe: urlcode转字符串
 	 * @param value
 	 * @return
 	 */
@@ -293,7 +306,7 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 	}
 	/**
-	 * 判断字符串是否包含汉字
+	 * Describe: 判断字符串是否包含汉字
 	 * @param txt
 	 * @return
 	 */
@@ -311,51 +324,36 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return false;
 	}
-    /**
-     * 去掉HTML代码
-     * @param news
-     * @return
-     */
-    public static String removeHtml(String news) {
-      String s = news.replaceAll("amp;", "").replaceAll("<","<").replaceAll(">", ">");
-      
-      Pattern pattern = Pattern.compile("<(span)?\\sstyle.*?style>|(span)?\\sstyle=.*?>", Pattern.DOTALL);
-      Matcher matcher = pattern.matcher(s);
-      String str = matcher.replaceAll("");
-      
-      Pattern pattern2 = Pattern.compile("(<[^>]+>)",Pattern.DOTALL);
-      Matcher matcher2 = pattern2.matcher(str);
-      String strhttp = matcher2.replaceAll(" ");
-      
-      
-      String regEx = "(((http|https|ftp)(\\s)*((\\:)|：))(\\s)*(//|//)(\\s)*)?"
-         + "([\\sa-zA-Z0-9(\\.|．)(\\s)*\\-]+((\\:)|(:)[\\sa-zA-Z0-9(\\.|．)&%\\$\\-]+)*@(\\s)*)?"
-         + "("
-         + "(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])"
-         + "(\\.|．)(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)"
-         + "(\\.|．)(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)"
-         + "(\\.|．)(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])"
-         + "|([\\sa-zA-Z0-9\\-]+(\\.|．)(\\s)*)*[\\sa-zA-Z0-9\\-]+(\\.|．)(\\s)*[\\sa-zA-Z]*"
-         + ")"
-         + "((\\s)*(\\:)|(：)(\\s)*[0-9]+)?"
-         + "(/(\\s)*[^/][\\sa-zA-Z0-9\\.\\,\\?\\'\\\\/\\+&%\\$\\=~_\\-@]*)*";
-      Pattern p1 = Pattern.compile(regEx,Pattern.DOTALL);
-      Matcher matchhttp = p1.matcher(strhttp);
-      String strnew = matchhttp.replaceAll("").replaceAll("(if[\\s]*\\(|else|elseif[\\s]*\\().*?;", " ");
-      
-      
-      Pattern patterncomma = Pattern.compile("(&[^;]+;)",Pattern.DOTALL);
-      Matcher matchercomma = patterncomma.matcher(strnew);
-      String strout = matchercomma.replaceAll(" ");
-      String answer = strout.replaceAll("[\\pP‘’“”]", " ")
-        .replaceAll("\r", " ").replaceAll("\n", " ")
-        .replaceAll("\\s", " ").replaceAll("　", "");
-
-      
-      return answer;
-    }
 	/**
-	 * 把数组的空数据去掉
+	 * Describe: 去掉HTML代码
+	 * @param news
+	 * @return
+	 */
+	public static String removeHtml(String news) {
+		String s = news.replaceAll("amp;", "").replaceAll("<", "<").replaceAll(">", ">");
+
+		Pattern pattern = Pattern.compile("<(span)?\\sstyle.*?style>|(span)?\\sstyle=.*?>", Pattern.DOTALL);
+		Matcher matcher = pattern.matcher(s);
+		String str = matcher.replaceAll("");
+
+		Pattern pattern2 = Pattern.compile("(<[^>]+>)", Pattern.DOTALL);
+		Matcher matcher2 = pattern2.matcher(str);
+		String strhttp = matcher2.replaceAll(" ");
+
+		String regEx = "(((http|https|ftp)(\\s)*((\\:)|：))(\\s)*(//|//)(\\s)*)?" + "([\\sa-zA-Z0-9(\\.|．)(\\s)*\\-]+((\\:)|(:)[\\sa-zA-Z0-9(\\.|．)&%\\$\\-]+)*@(\\s)*)?" + "(" + "(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])" + "(\\.|．)(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)" + "(\\.|．)(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)" + "(\\.|．)(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])" + "|([\\sa-zA-Z0-9\\-]+(\\.|．)(\\s)*)*[\\sa-zA-Z0-9\\-]+(\\.|．)(\\s)*[\\sa-zA-Z]*" + ")" + "((\\s)*(\\:)|(：)(\\s)*[0-9]+)?" + "(/(\\s)*[^/][\\sa-zA-Z0-9\\.\\,\\?\\'\\\\/\\+&%\\$\\=~_\\-@]*)*";
+		Pattern p1 = Pattern.compile(regEx, Pattern.DOTALL);
+		Matcher matchhttp = p1.matcher(strhttp);
+		String strnew = matchhttp.replaceAll("").replaceAll("(if[\\s]*\\(|else|elseif[\\s]*\\().*?;", " ");
+
+		Pattern patterncomma = Pattern.compile("(&[^;]+;)", Pattern.DOTALL);
+		Matcher matchercomma = patterncomma.matcher(strnew);
+		String strout = matchercomma.replaceAll(" ");
+		String answer = strout.replaceAll("[\\pP‘’“”]", " ").replaceAll("\r", " ").replaceAll("\n", " ").replaceAll("\\s", " ").replaceAll("　", "");
+
+		return answer;
+	}
+	/**
+	 * Describe: 把数组的空数据去掉
 	 * @param array
 	 * @return
 	 */
@@ -368,9 +366,8 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 		}
 		return list;
 	}
-
 	/**
-	 * 把数组转换成set
+	 * Describe: 把数组转换成set
 	 * @param array
 	 * @return
 	 */
@@ -382,5 +379,20 @@ public class StringUtils extends org.apache.commons.lang.StringUtils{
 			}
 		}
 		return set;
+	}
+	/**
+	 * Describe: serializable toString
+	 * @param serializable
+	 * @return
+	 */
+	public static String toString(Serializable serializable) {
+		if (null == serializable) {
+			return null;
+		}
+		try {
+			return (String) serializable;
+		} catch (Exception e) {
+			return serializable.toString();
+		}
 	}
 }

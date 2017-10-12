@@ -1,15 +1,6 @@
 package trick;
 
-import javax.annotation.Resource;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.alibaba.fastjson.JSON;
 //import com.trick.biz.mvc.test.model.User;
 //import com.trick.biz.mvc.test.service.UserService;
 
@@ -27,6 +18,11 @@ public class Test_Spring_Mybatis {
 	// ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 	// userService = (IUserService) ac.getBean("userService");
 	// }
+
+    public void test(){
+        System.out.println("11");
+
+    }
 
 //	@Test
 //	public void test1() {

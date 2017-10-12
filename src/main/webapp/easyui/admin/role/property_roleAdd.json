@@ -1,0 +1,17 @@
+{"total":7,"rows":[
+	{"name":"name","value":"","editor":{
+		"type":"validatebox",
+			"options":{
+				"required":true,
+				"validType":"minLength[1]",
+				"missingMessage":"角色名称不可为空"
+			}
+	}},
+	{"name":"是否可用","value":"可用","editor":{
+		"type":"checkbox",
+			"options":{
+				"on":"可用",
+				"off":"不可用"
+			}
+	}}
+]}

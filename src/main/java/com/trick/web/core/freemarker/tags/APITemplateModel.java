@@ -1,11 +1,9 @@
 package com.trick.web.core.freemarker.tags;
 
-import static freemarker.template.ObjectWrapper.DEFAULT_WRAPPER;
-
 import java.util.HashMap;
 import java.util.Map;
 
-import com.trick.web.common.utils.LoggerUtils;
+import com.trick.web.common.utils.Log.LoggerUtils;
 import com.trick.web.common.utils.SpringContextUtil;
 import com.trick.web.core.statics.Constant;
 
@@ -15,25 +13,10 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.sojson.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
- * <p>
- * 
  * Freemarker 自定义标签 API公共入口
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
- *
- * @author zhou-baicheng
- * @email  so@sojson.com
  * @version 1.0,2016年6月2日 <br/>
  * 
  */
-
 public class APITemplateModel extends WYFTemplateModel {
 
 	@Override
