@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	
-	<import resource="spring-mybatis.xml"/>
+	<!--<import resource="spring-mybatis.xml"/>-->
 	<!-- 定时任务，运行去掉 -->
 <!-- 	<import resource="spring-timer.xml"/> -->
 	<!-- 引入属性文件 -->
@@ -20,7 +20,7 @@
 			<property name="locations">
 				<list>
 					<value>classpath:config/jdbc_dev.properties</value>
-					<!-- <value>classpath:config/shiro-config.properties</value> -->
+					<value>classpath:config/shiro-config.properties</value>
 				</list>
 			</property>
 		</bean>

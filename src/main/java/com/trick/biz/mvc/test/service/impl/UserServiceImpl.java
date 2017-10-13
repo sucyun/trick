@@ -27,14 +27,14 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	@DataSource("dataSource_rout")
+//	@DataSource("dataSource_rout")
 	public List<Map<String, Object>> getGirl() {
 //		DynamicDataSourceHolder.setDataSource("dataSource_rout");
 		return userDao.getGirl();
 	}
 	
 	@Override
-	@DataSource("dataSource_local")
+//	@DataSource("dataSource_local")
 	public List<Map<String, Object>> findGirl_local() {
 		return userDao.getGirl();
 	}

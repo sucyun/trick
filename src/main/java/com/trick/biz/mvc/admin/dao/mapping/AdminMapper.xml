@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.name.mvc.admin.dao.AdminMapper" >
-  <resultMap id="BaseResultMap" type="com.name.mvc.admin.model.Admin" >
+<mapper namespace="com.trick.biz.mvc.admin.dao.AdminMapper" >
+  <resultMap id="BaseResultMap" type="com.trick.biz.mvc.admin.model.Admin" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -23,7 +23,7 @@
   	update sys_admin set status = 0
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.name.mvc.admin.model.Admin" >
+  <insert id="insert" parameterType="com.trick.biz.mvc.admin.model.Admin" >
     insert into sys_admin (id, code, name, 
       password, createtime, createby, 
       status)
@@ -31,7 +31,7 @@
       #{password,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{createby,jdbcType=VARCHAR}, 
       #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.name.mvc.admin.model.Admin" >
+  <insert id="insertSelective" parameterType="com.trick.biz.mvc.admin.model.Admin" >
     insert into sys_admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.name.mvc.admin.model.Admin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.trick.biz.mvc.admin.model.Admin" >
     update sys_admin
     <set >
       <if test="code != null" >
@@ -104,7 +104,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.name.mvc.admin.model.Admin" >
+  <update id="updateByPrimaryKey" parameterType="com.trick.biz.mvc.admin.model.Admin" >
     update sys_admin
     set code = #{code,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
@@ -140,7 +140,7 @@
 	where s_r.name = #{admName,jdbcType=VARCHAR}
   </select>
   <!-- 根据拥有的所有角色，获取所有权限 -->
-  <select id="getPrivilegeListByRole" resultType="com.name.mvc.admin.model.Privilege" parameterType="java.lang.Integer" >
+  <select id="getPrivilegeListByRole" resultType="com.trick.biz.mvc.admin.model.Privilege" parameterType="java.lang.Integer" >
   	SELECT 
   		s_p.id,s_p.parentid parentId,s_p.code,s_p.name,s_p.url,s_p.explan,s_p.createtime,s_p.createby,s_p.status
 <!--   		s_p.id pri_id,s_p.parentid,s_p.code pri_code,s_p.name pri_name,s_p.url,s_p.explan,s_p.createtime pri_createtime,s_p.createby pri_createby,s_p.status pri_status -->
@@ -168,17 +168,17 @@
   
   
     <!-- 自定义 -->
-  	<resultMap type="com.name.mvc.admin.model.Role" id="RoleResult">
+  	<resultMap type="com.trick.biz.mvc.admin.model.Role" id="RoleResult">
 	  <id column="id" property="id"  jdbcType="INTEGER" />
       <result column="code" property="code"  jdbcType="VARCHAR" />
    	  <result column="name" property="name"  jdbcType="VARCHAR" />
       <result column="createtime" property="createTime"  jdbcType="TIMESTAMP" />
       <result column="createby" property="createBy" jdbcType="VARCHAR" />
       <result column="status" property="status"  jdbcType="INTEGER" />
-<!-- 	  <collection property="privilege" ofType="com.name.mvc.admin.model.Privilege" resultMap="privilegeResult"/> -->
+<!-- 	  <collection property="privilege" ofType="com.trick.biz.mvc.admin.model.Privilege" resultMap="privilegeResult"/> -->
 	</resultMap>
 	
-	<resultMap type="com.name.mvc.admin.model.Privilege" id="PrivilegeResult">
+	<resultMap type="com.trick.biz.mvc.admin.model.Privilege" id="PrivilegeResult">
 		<id column="pri_id" property="id" jdbcType="INTEGER" />
       	<result column="parentid" property="parentId" jdbcType="INTEGER" />
         <result column="pri_code" property="code" jdbcType="VARCHAR" />
@@ -189,7 +189,7 @@
         <result column="pri_createby" property="createby" jdbcType="VARCHAR" />
         <result column="pri_status" property="status" jdbcType="INTEGER" />
 	</resultMap>
-  <resultMap type="com.name.mvc.admin.model.Admin" id="AdminInfo">
+  <resultMap type="com.trick.biz.mvc.admin.model.Admin" id="AdminInfo">
     <id column="adm_id" property="id" jdbcType="INTEGER" />
     <result column="adm_code" property="code" jdbcType="VARCHAR" />
     <result column="adm_name" property="name" jdbcType="VARCHAR" />
@@ -197,7 +197,7 @@
     <result column="adm_createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="adm_createby" property="createby" jdbcType="VARCHAR" />
     <result column="adm_status" property="status" jdbcType="INTEGER" />
-<!--     <collection column="role_id" property="role" ofType="com.name.mvc.admin.model.Role"> -->
+<!--     <collection column="role_id" property="role" ofType="com.trick.biz.mvc.admin.model.Role"> -->
 <!--     	<id property="id" column="role_id" jdbcType="INTEGER" /> -->
 <!--     </collection> -->
   </resultMap>

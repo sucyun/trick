@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.name.mvc.admin.dao.RoleMapper" >
-  <resultMap id="BaseResultMap" type="com.name.mvc.admin.model.Role" >
+<mapper namespace="com.trick.biz.mvc.admin.dao.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.trick.biz.mvc.admin.model.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from sys_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.name.mvc.admin.model.Role" >
+  <insert id="insert" parameterType="com.trick.biz.mvc.admin.model.Role" >
     insert into sys_role (id, code, name, 
       createtime, createby, status
       )
@@ -30,7 +30,7 @@
       #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.name.mvc.admin.model.Role" >
+  <insert id="insertSelective" parameterType="com.trick.biz.mvc.admin.model.Role" >
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.name.mvc.admin.model.Role" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.trick.biz.mvc.admin.model.Role" >
     update sys_role
     <set >
       <if test="code != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.name.mvc.admin.model.Role" >
+  <update id="updateByPrimaryKey" parameterType="com.trick.biz.mvc.admin.model.Role" >
     update sys_role
     set code = #{code,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},
@@ -104,7 +104,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <resultMap id="ResultMapForPrivilege" type="com.name.mvc.admin.model.Role" >
+  <resultMap id="ResultMapForPrivilege" type="com.trick.biz.mvc.admin.model.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="code" property="code" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -113,7 +113,7 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <!-- 一对多的关系 -->
 	<!-- property: 指的是集合属性的值, ofType：指的是集合中元素的类型   结果字段可以使用resultMap代替-->
-	<collection property="privilege" ofType="com.name.mvc.admin.model.Privilege">
+	<collection property="privilege" ofType="com.trick.biz.mvc.admin.model.Privilege">
 		<id column="pri_id" property="id" jdbcType="INTEGER" />
 		<result column="parentid" property="parentId" jdbcType="INTEGER" />
 		<result column="pri_code" property="code" jdbcType="VARCHAR" />

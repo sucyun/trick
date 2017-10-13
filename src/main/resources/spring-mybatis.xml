@@ -72,7 +72,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mapping.xml文件 -->
-		<property name="mapperLocations" value="classpath*:com/trick/biz/mvc/*/dao/mapping/*.xml"/>
+		<property name="mapperLocations" value="classpath:com/trick/biz/mvc/*/dao/mapping/*.xml"/>
 		<property name="typeAliasesPackage" value="com.trick.biz.mvc.*.model" />
 		<!-- mybatis 分页插件 -->
 		<property name="plugins">
@@ -191,19 +191,19 @@
 		<!--<property name="sqlSessionTemplateBeanName" value="masterAndSlaveSqlSessionTemplate"/>-->
 	</bean>
 	<!-- aop代理层，配置多数据源时，通过配置dao层切点，将解析dao层所使用的连接信息，最后选择相应数源 -->
-	<bean id="dataSourceAspect" class="com.trick.web.db.jdbc.DataSourceAspect"/>
+	<!--<bean id="dataSourceAspect" class="com.trick.web.db.jdbc.DataSourceAspect"/>-->
 	<!-- 多数据源切入点aop切入点配置 -->
-	<aop:config>
-		<aop:aspect ref="dataSourceAspect">
+	<!--<aop:config>-->
+		<!--<aop:aspect ref="dataSourceAspect">-->
 			<!-- 拦截所有service方法 -->
-			<aop:pointcut id="dataSourcePointcut" expression="execution(public * com.trick.biz.mvc.*.service.*.*(..))" />
+			<!--<aop:pointcut id="dataSourcePointcut" expression="execution(public * com.trick.biz.mvc.*.service.*.*(..))" />-->
 			<!-- 			<aop:pointcut id="dataSourcePointcut" expression="execution(public * com.trick.biz.mvc.test.service.*.get(..))" /> -->
-			<aop:before pointcut-ref="dataSourcePointcut" method="intercept" />
-		</aop:aspect>
-	</aop:config>
+			<!--<aop:before pointcut-ref="dataSourcePointcut" method="intercept" />-->
+		<!--</aop:aspect>-->
+	<!--</aop:config>-->
 	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-
+	<!--<import resource="spring-shiro.xml"/>-->
 </beans>  
