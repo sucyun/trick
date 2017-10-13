@@ -40,9 +40,10 @@ public class StudentController {
      * haoshuai 2017年10月12日
      */
     @ResponseBody
-    @RequestMapping(value = "getStudent" , method = RequestMethod.POST)
+    @RequestMapping(value = "getStudent" , method = RequestMethod.GET)
     public String getStudent(HttpServletRequest request) {
         String id = request.getParameter("id");
+
         Student student = studentService.getStudent(Integer.parseInt(id));
         return student+"";
     }
