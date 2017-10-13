@@ -16,10 +16,6 @@ import java.security.SecureRandom;
 public class CreateMD5Utils {
 	/**
 	 * 创建密码的Md5
-	 * 
-	 * @param
-	 * 
-	 * @throws NoSuchAlgorithmException
 	 */
 	public static String createMd5(String password) throws Exception {
 
@@ -69,7 +65,6 @@ public class CreateMD5Utils {
 	}
 	/**
 	 * BASE64编码
-	 * 
 	 * @param password
 	 * @return
 	 */
@@ -88,8 +83,6 @@ public class CreateMD5Utils {
 
 	/**
 	 * Description 根据键值进行加密
-	 * @throws InvalidKeyException
-	 * @throws NoSuchAlgorithmException
 	 * @throws Exception
 	 */
 	private static byte[] encrypt(String str) throws Exception {
