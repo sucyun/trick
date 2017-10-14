@@ -36,7 +36,7 @@
 	<mvc:resources mapping="/statics/js/**" location="/statics/js/" />
 
 	<mvc:interceptors>
-		<bean class="com.web.common.interceptor.EventInterceptor" />
+		<bean class="com.trick.web.common.interceptor.EventInterceptor" />
 	</mvc:interceptors>
 
 	<!-- all bean ############################################################################################ -->

@@ -18,10 +18,10 @@
 	</context-param>
 	<!-- 解决 javax.naming.NameNotFoundException: -->
 	<!-- Name [spring.profiles.active] is not bound in this Context. Unable to find [spring.profiles.active] -->
-	<context-param>
-		<param-name>spring.profiles.active</param-name>
-		<param-value>dev</param-value>
-	</context-param>
+	<!--<context-param>-->
+		<!--<param-name>spring.profiles.active</param-name>-->
+		<!--<param-value>dev</param-value>-->
+	<!--</context-param>-->
 	<!-- Name [spring.liveBeansView.mbeanDomain] is not bound in this Context. Unable to find [spring.liveBeansView.mbeanDomain] -->
 	<!--<context-param>
 		<param-name>spring.liveBeansView.mbeanDomain</param-name>
