@@ -127,7 +127,7 @@ public class GlobleController extends BaseController {
 			System.out.println("对用户[" + username + "]进行登录验证..验证通过");
 			super.resultMap.put(BaseCode.RESULT_STATUS, 200);
 			super.resultMap.put(BaseCode.RESULT_MESSAGE, "登录成功");
-			super.resultMap.put(BaseCode.RESULT_BACK_URL, request.getContextPath() + "/globle/welcome.jsp");
+			super.resultMap.put(BaseCode.RESULT_BACK_URL, request.getContextPath() + "/easyui/globle/welcome.jsp");
 		} catch (UnknownAccountException uae) {
 			System.out.println("对用户[" + username + "]进行登录验证..验证未通过,未知账户");
 			super.resultMap.put(BaseCode.RESULT_MESSAGE, "未知账户");
